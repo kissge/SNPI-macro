@@ -1,18 +1,22 @@
 {
   "name": "SNPI Macro",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "manifest_version": 2,
   "description": "Make notion.so great again",
-  "author": "",
+  "author": "kissge <mail@yo.eki.do>",
   "homepage_url": "https://github.com/kissge/snpi-macro",
   "icons": {
     "128": "images/icon.png"
   },
   "content_scripts": [
     {
-      "matches": ["https://*/*"],
+      "matches": [
+        "https://www.notion.so/*"
+      ],
       "run_at": "document_end",
-      "js": ["content.js"]
+      "js": [
+        "content.js"
+      ]
     }
   ],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
