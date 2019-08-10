@@ -1,0 +1,64 @@
+{
+  "name": "snpi-macro",
+  "version": "0.0.0",
+  "description": "Make notion.so great again",
+  "license": "MIT",
+  "repository": "https://github.com/kissge/snpi-macro",
+  "author": {
+    "name": "",
+    "email": "",
+    "url": "https://yo.eki.do"
+  },
+  "scripts": {
+    "postinstall": "check-node-version --package",
+    "start": "NODE_ENV=development gulp dev --require esm",
+    "build": "NODE_ENV=production gulp build --require esm",
+    "bundle": "NODE_ENV=production gulp bundle --require esm",
+    "pretest": "npm run build",
+    "test": "ava"
+  },
+  "browserslist": [
+    "last 1 Chrome version",
+    "last 1 Firefox version"
+  ],
+  "engines": {
+    "node": ">=8.6"
+  },
+  "dependencies": {
+    "lz-string": "^1.4.4",
+    "webextension-polyfill": "^0.4.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "ava": "^2.2.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-lodash": "^3.3.4",
+    "chalk": "^2.4.2",
+    "check-node-version": "^4.0.1",
+    "del": "^5.0.0",
+    "dotenv": "^8.0.0",
+    "dotenv-webpack": "^1.6.0",
+    "eslint-config-accurapp": "^4.1.6",
+    "esm": "^3.2.25",
+    "gulp": "^4.0.2",
+    "gulp-add-src": "^1.0.0",
+    "gulp-if": "^3.0.0",
+    "gulp-json-editor": "^2.5.0",
+    "gulp-notify": "^3.0.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-zip": "^5.0.0",
+    "postcss-preset-env": "^6.5.0",
+    "puppeteer": "^1.19.0",
+    "sass-module-importer": "^1.4.0",
+    "socket.io": "^2.2.0",
+    "socket.io-client": "^2.2.0",
+    "stylelint": "^10.1.0",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-scss": "^3.4.4",
+    "vinyl-named": "^1.1.0",
+    "webpack": "^4.39.1",
+    "webpack-stream": "^5.2.1"
+  }
+}
