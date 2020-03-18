@@ -10,13 +10,10 @@
   },
   "content_scripts": [
     {
-      "matches": [
-        "https://www.notion.so/*"
-      ],
+      "matches": ["https://www.notion.so/*"],
       "run_at": "document_end",
-      "js": [
-        "content.js"
-      ]
+      "js": ["content.js"],
+      "css": ["style.css"]
     }
   ],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"

@@ -1,9 +1,10 @@
 import browser from 'webextension-polyfill'
 import Mousetrap from 'mousetrap'
+import './list-markers'
 
 Mousetrap.prototype.stopCallback = () => false
 
-const countAncestors = (div) => {
+const countAncestors = div => {
   let i = 0
   while (div && !div.classList.contains('notion-page-content')) {
     div = div.parentElement
@@ -44,19 +45,21 @@ const getParticipantsList = () => {
     words.push(word)
   }
 
-  return words.map(word => {
-    for (let i = 1; i <= word.length; ++i) {
-      const short = word.substr(0, i)
-      if (words.every(word2 => word === word2 || word2.substr(0, i) !== short)) {
-        return short
+  return words
+    .map(word => {
+      for (let i = 1; i <= word.length; ++i) {
+        const short = word.substr(0, i)
+        if (words.every(word2 => word === word2 || word2.substr(0, i) !== short)) {
+          return short
+        }
       }
-    }
 
-    return word
-  }).map(word => `${word}：`)
+      return word
+    })
+    .map(word => `${word}：`)
 }
 
-const updateName = (id) => {
+const updateName = id => {
   const names = getParticipantsList()
   let textToInsert
 
@@ -81,7 +84,8 @@ const updateName = (id) => {
   if (id === 'next') {
     textToInsert = names[current.i === -1 ? 0 : (current.i + 1) % names.length]
   } else if (id === 'prev') {
-    textToInsert = names[current.i === -1 ? names.length - 1 : (current.i + names.length - 1) % names.length]
+    textToInsert =
+      names[current.i === -1 ? names.length - 1 : (current.i + names.length - 1) % names.length]
   }
 
   selection.setBaseAndExtent(selection.anchorNode, 0, selection.anchorNode, current.name.length)
