@@ -7,22 +7,50 @@
   }
 }
 
-.snpi__bullet-1 {
-  border: 1px solid currentColor;
-  background: white !important;
+.snpi__force-bold-item {
+  font-weight: bold;
+
+  & + div > div:first-child {
+    font-weight: bold;
+  }
 }
 
-.snpi__bullet-2 {
-  width: 8px !important;
-  height: 8px !important;
-  border: 1px solid currentColor;
-  border-radius: 0 !important;
-}
+.notion-bulleted_list-block > div > div:first-child > div:not(.notion-selectable) {
+  &[data-depth="0"] {
+    width: 10px !important;
+    height: 10px !important;
+    border: 1px solid currentColor;
+    border-radius: 0 !important;
+  }
 
-.snpi__bullet-3 {
-  width: 8px !important;
-  height: 8px !important;
-  border: 1px solid currentColor;
-  border-radius: 0 !important;
-  background: white !important;
+  &[data-depth="2"] {
+    height: 1px !important;
+    border-radius: 0 !important;
+  }
+
+  &[data-depth="3"] {
+    margin-top: 0 !important;
+    width: 15px !important;
+    height: 15px !important;
+    background: unset !important;
+
+    &::before {
+      content: "P";
+      font-weight: bold;
+      font-family: "Wingdings 2";
+    }
+  }
+
+  &[data-depth="4"] {
+    margin-top: 0 !important;
+    width: 15px !important;
+    height: 24px !important;
+    background: unset !important;
+
+    &::before {
+      content: "Ø";
+      font-weight: bold;
+      font-family: "Wingdings";
+    }
+  }
 }
