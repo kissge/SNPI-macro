@@ -55,7 +55,7 @@
     "sass-module-importer": "^1.4.0",
     "socket.io": "^2.2.0",
     "socket.io-client": "^2.2.0",
-    "stylelint": "^10.1.0",
+    "stylelint": "^15.10.1",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-scss": "^3.4.4",
     "vinyl-named": "^1.1.0",
